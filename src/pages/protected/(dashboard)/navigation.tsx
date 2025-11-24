@@ -11,6 +11,7 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { Link } from "@tanstack/react-router";
 import { useTheme } from "next-themes";
 import { Moon, Monitor, SunIcon } from "lucide-react";
+import { Ring } from "@/components/icons/ranks";
 
 const navigations: { to: string; title: string }[] = [];
 
@@ -38,10 +39,18 @@ const Profile = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Avatar className="w-7 h-7">
-          <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-          <AvatarFallback>CN</AvatarFallback>
-        </Avatar>
+        <div className="relative">
+          <Avatar className="w-7 h-7 ">
+            <AvatarImage src="https://i.pravatar.cc/300" alt="@shadcn" />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
+
+          <div className="absolute top-0 right-0 w-full h-full flex items-center justify-center">
+            <div className="shrink-0">
+              <Ring size={46} />
+            </div>
+          </div>
+        </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">
         <DropdownMenuItem>Profile</DropdownMenuItem>

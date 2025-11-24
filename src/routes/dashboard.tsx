@@ -3,6 +3,7 @@ import { createRoute } from "@tanstack/react-router";
 import { DashboardLayout } from "@/pages/protected/(dashboard)/layout";
 import { DashboardPage } from "@/pages/protected/(dashboard)/dashboard/page";
 import { CoursePage } from "@/pages/protected/(dashboard)/courses/[courseId]/page";
+import { LessonPage } from "@/pages/protected/(dashboard)/courses/[courseId]/lesson/page";
 
 export const dashboardLayout = createRoute({
   getParentRoute: () => protectedlLayout,
@@ -22,7 +23,14 @@ export const courseRoute = createRoute({
   getParentRoute: () => dashboardLayout,
 });
 
+export const lessonRoute = createRoute({
+  path: "/courses/$courseId/lesson/$lessonId",
+  component: () => <LessonPage />,
+  getParentRoute: () => dashboardLayout,
+});
+
 export const dashboardRouteTree = dashboardLayout.addChildren([
   dashboardRoute,
   courseRoute,
+  lessonRoute,
 ]);

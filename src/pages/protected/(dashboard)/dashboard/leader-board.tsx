@@ -1,5 +1,10 @@
+import {
+  Coin,
+  FirstPlace,
+  SecondPlace,
+  ThirdPlace,
+} from "@/components/icons/ranks";
 import { cn } from "@/lib/utils";
-import { ZapIcon } from "lucide-react";
 
 const users = [
   {
@@ -27,28 +32,12 @@ const users = [
     points: 1090,
   },
   {
-    id: 4,
+    id: 6,
     name: "Daniel Park",
     username: "danielp",
     avatar: "https://randomuser.me/api/portraits/men/11.jpg",
-    rank: 4,
+    rank: 22,
     points: 980,
-  },
-  {
-    id: 5,
-    name: "Julia Rossi",
-    username: "julia_r",
-    avatar: "https://randomuser.me/api/portraits/women/25.jpg",
-    rank: 5,
-    points: 870,
-  },
-  {
-    id: 6,
-    name: "Omar Haddad",
-    username: "omar_h",
-    avatar: "https://randomuser.me/api/portraits/men/55.jpg",
-    rank: 6,
-    points: 765,
   },
 ];
 
@@ -57,26 +46,30 @@ export const LeaderBoard = () => {
     <table>
       <tbody className="gap-4">
         {users.map((user, index) => (
-          <tr key={user.id} className="bg-background">
+          <tr key={user.id}>
             <td className="pb-1">
               <div
                 className={cn(
-                  "border-l border-y p-2 rounded-l pl-3",
+                  "border-l border-y h-12 bg-background flex items-center justify-center rounded-l pl-2",
                   index === 0 ? "border-primary" : ""
                 )}
               >
-                {user.rank}
+                {user.rank === 1 && <FirstPlace size={28} />}
+                {user.rank === 2 && <SecondPlace size={28} />}
+                {user.rank === 3 && <ThirdPlace size={28} />}
+
+                {user.rank > 3 && user.rank}
               </div>
             </td>
             <td className="pb-1">
               <div
                 className={cn(
-                  "border-y p-2",
+                  "border-y h-12 bg-background flex items-center pl-3",
                   index === 0 ? "border-primary" : ""
                 )}
               >
                 {user.name}
-                {index === 4 && (
+                {index === 3 && (
                   <span className="text-primary ml-1 text-sm">(You)</span>
                 )}
               </div>
@@ -84,11 +77,11 @@ export const LeaderBoard = () => {
             <td className="pb-1">
               <div
                 className={cn(
-                  "border-r border-y p-2 pr-3 rounded-r text-primary ",
+                  "border-r border-y h-12 bg-background flex items-center pr-3 rounded-r text-primary ",
                   index === 0 ? "border-primary" : ""
                 )}
               >
-                <ZapIcon size={16} className="inline mr-1" />
+                <Coin size={24} />
                 {user.points}
               </div>
             </td>

@@ -24,7 +24,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
     navigate({
       to: "/courses/$courseId",
       params: {
-        courseId: "course-1",
+        courseId: course.id,
       },
     });
   };
@@ -51,7 +51,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
             <span>Progress</span>
             <span className="text-primary">{course.progress}%</span>
           </div>
-          <Progress value={course.progress} className="mt-1" />
+          <Progress value={course.progress} className="mt-1 h-2.5" />
         </div>
 
         <div className="flex items-center gap-2 text-xs text-muted-foreground ">

@@ -1,3 +1,4 @@
+import { Coin, FakeRank } from "@/components/icons/ranks";
 import { ChartContainer, type ChartConfig } from "@/components/ui/chart";
 import {
   Label,
@@ -10,10 +11,17 @@ import {
 export const Rank = () => {
   return (
     <div className="bg-background rounded-md border p-4">
-      <ChartRadialText />
+      <div className="relative">
+        <ChartRadialText />
+        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center pb-3">
+          <FakeRank size={140} />
+        </div>
+      </div>
 
       <div className="flex flex-col text-center">
-        <span className="font-semibold">2850 points</span>
+        <div className="flex items-center justify-center">
+          <span className="font-semibold">2850</span> <Coin size={24} />
+        </div>
         <span className="text-muted-foreground">200 to next level</span>
       </div>
     </div>
