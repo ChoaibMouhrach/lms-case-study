@@ -63,7 +63,7 @@ export const LessonPage = () => {
       <Dashboard>
         <DashboardContent>
           <div className="text-center py-12">
-            <h2 className="text-2xl font-semibold">Lesson not found</h2>
+            <h2 className="text-2xl font-semibold">Leçon introuvable</h2>
           </div>
         </DashboardContent>
       </Dashboard>
@@ -128,6 +128,25 @@ const Lesson: React.FC<LessonProps> = ({ lesson }) => {
     return null;
   };
 
+  const getTypeLabel = (type: string) => {
+    switch (type) {
+      case "video":
+        return "vidéo";
+      case "document":
+        return "document";
+      case "link":
+        return "lien";
+      case "code":
+        return "code";
+      case "exercise":
+        return "exercice";
+      case "quiz":
+        return "quiz";
+      default:
+        return type;
+    }
+  };
+
   return (
     <div className="grid grid-cols-3 gap-6">
       <div className="col-start-1 col-end-3 gap-4">
@@ -177,10 +196,10 @@ const Lesson: React.FC<LessonProps> = ({ lesson }) => {
                               {question.type === "true-false" && (
                                 <div className="gap-1 flex flex-col text-sm text-muted-foreground">
                                   <div className="border rounded-md bg-muted/60 p-2">
-                                    True
+                                    Vrai
                                   </div>
                                   <div className="border rounded-md bg-muted/60 p-2">
-                                    False
+                                    Faux
                                   </div>
                                 </div>
                               )}
@@ -224,7 +243,7 @@ const Lesson: React.FC<LessonProps> = ({ lesson }) => {
                     />
                   ))}
               </div>
-              <Button className="mt-4">Submit quiz</Button>
+              <Button className="mt-4">Soumettre le quiz</Button>
             </form>
           </Form>
         )}
@@ -234,14 +253,14 @@ const Lesson: React.FC<LessonProps> = ({ lesson }) => {
             className="mt-2"
             onClick={() => setCurrentMaterial((cm) => cm + 1)}
           >
-            Complete & Continue
+            Terminer et continuer
           </Button>
         )}
       </div>
       <div className="">
         <div className="flex flex-col sticky top-4 gap-2">
           <div className="border rounded-md bg-background p-4 flex items-center">
-            <span>Reward</span>
+            <span>Récompense</span>
             <span className="ml-auto text-primary flex items-center">
               +100 <Coin size={24} />
             </span>
@@ -249,7 +268,7 @@ const Lesson: React.FC<LessonProps> = ({ lesson }) => {
 
           <div className="border rounded-md bg-background p-4 mb-4">
             <div className="flex items-center justify-between text-sm ">
-              <span>Progress</span>
+              <span>Progression</span>
               <span className="text-primary">{progressPercentage}%</span>
             </div>
             <Progress value={progressPercentage} className="mt-1 h-2.5" />
@@ -283,7 +302,7 @@ const Lesson: React.FC<LessonProps> = ({ lesson }) => {
                       </span>
                     )}
                     <span className="text-xs text-muted-foreground capitalize">
-                      {material.type}
+                      {getTypeLabel(material.type)}
                     </span>
                   </div>
                 </div>

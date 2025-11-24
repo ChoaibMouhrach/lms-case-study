@@ -48,7 +48,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
 
         <div className="my-4">
           <div className="flex items-center justify-between text-xs">
-            <span>Progress</span>
+            <span>Progression</span>
             <span className="text-primary">{course.progress}%</span>
           </div>
           <Progress value={course.progress} className="mt-1 h-2.5" />
@@ -58,7 +58,12 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
           <UserIcon size={16} /> {course.instructor.name}
         </div>
         <div className="flex items-center gap-2 text-xs text-muted-foreground mt-3">
-          <CalendarIcon size={16} /> {new Date().toDateString()}
+          <CalendarIcon size={16} />
+          {new Date().toLocaleDateString("fr-FR", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          })}
         </div>
       </div>
     </div>

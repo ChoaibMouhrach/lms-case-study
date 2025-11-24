@@ -22,7 +22,7 @@ export const Rank = () => {
         <div className="flex items-center justify-center">
           <span className="font-semibold">2850</span> <Coin size={24} />
         </div>
-        <span className="text-muted-foreground">200 to next level</span>
+        <span className="text-muted-foreground">200 pour le niveau suivant</span>
       </div>
     </div>
   );
@@ -86,7 +86,7 @@ export function ChartRadialText() {
                       y={(viewBox.cy || 0) + 24}
                       className="fill-muted-foreground"
                     >
-                      Master
+                      Maître
                     </tspan>
                   </text>
                 );

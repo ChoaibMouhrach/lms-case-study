@@ -7,11 +7,11 @@ import {
 } from "@/components/ui/collapsible";
 import {
   CalendarIcon,
-  CheckCircle2Icon,
   ChevronRight,
   ChevronsUpDown,
   DotIcon,
   LockIcon,
+  PlayCircleIcon,
   UserIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -31,7 +31,7 @@ export const CoursePage = () => {
       <Dashboard>
         <DashboardContent>
           <div className="text-center py-12">
-            <h2 className="text-2xl font-semibold">Course not found</h2>
+            <h2 className="text-2xl font-semibold">Cours introuvable</h2>
           </div>
         </DashboardContent>
       </Dashboard>
@@ -84,7 +84,7 @@ const LessonCard: React.FC<LessonCardProps> = ({ lesson, courseId }) => {
       onClick={onNavigate}
       className={cn(
         "p-3 bg-muted/40 rounded-md border hover:bg-muted/60 select-none cursor-pointer",
-        lesson.title !== "Variables and Data Types" && !lesson.isCompleted
+        lesson.title !== "Variables et types de données" && !lesson.isCompleted
           ? "text-muted-foreground"
           : ""
       )}
@@ -93,28 +93,29 @@ const LessonCard: React.FC<LessonCardProps> = ({ lesson, courseId }) => {
         <span>{lesson.title}</span>
 
         {lesson.isCompleted && (
-          <CheckCircle2Icon
+          <PlayCircleIcon
             size={18}
             className="shrink-0 text-primary ml-auto mt-1.5"
           />
         )}
 
-        {!lesson.isCompleted && lesson.title !== "Variables and Data Types" && (
-          <>
-            <LockIcon size={16} className="shrink-0 ml-auto mt-1.5" />
-          </>
-        )}
+        {!lesson.isCompleted &&
+          lesson.title !== "Variables et types de données" && (
+            <>
+              <LockIcon size={16} className="shrink-0 ml-auto mt-1.5" />
+            </>
+          )}
 
-        {lesson.title === "Variables and Data Types" && (
+        {lesson.title === "Variables et types de données" && (
           <>
             <ChevronRight size={16} className="shrink-0 ml-auto mt-1.5" />
           </>
         )}
       </div>
       <div className="flex flex-wrap items-center text-sm text-muted-foreground">
-        <span>{lesson.learningMaterials.length} Materials</span>
+        <span>{lesson.learningMaterials.length} Ressources</span>
         <DotIcon size={18} className="shrink-0" />
-        <span className="text-primary">+10 Points</span>
+        <span className="text-primary">+10 Pièces</span>
       </div>
     </div>
   );
@@ -184,7 +185,13 @@ const CourseInfo: React.FC<CourseInfoProps> = ({ course }) => {
 
               <div className="flex items-center gap-2">
                 <CalendarIcon size={14} />
-                <span>{new Date(course.updatedAt).toDateString()}</span>
+                <span>
+                  {new Date(course.updatedAt).toLocaleDateString("fr-FR", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })}
+                </span>
               </div>
             </div>
           </div>
@@ -197,11 +204,13 @@ const CourseInfo: React.FC<CourseInfoProps> = ({ course }) => {
             <div className="grid grid-cols-2">
               <div className="flex flex-col items-center">
                 <span className="text-xl text-primary">120</span>
-                <span className="text-sm text-muted-foreground">Points</span>
+                <span className="text-sm text-muted-foreground">Pièces</span>
               </div>
               <div className="flex flex-col items-center">
                 <span className="text-xl text-primary">80%</span>
-                <span className="text-sm text-muted-foreground">Progress</span>
+                <span className="text-sm text-muted-foreground">
+                  Progression
+                </span>
               </div>
             </div>
 

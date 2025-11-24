@@ -35,9 +35,9 @@ export const SignIn = () => {
           control={form.control}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email address</FormLabel>
+              <FormLabel>Adresse e‑mail</FormLabel>
               <FormControl>
-                <Input {...field} placeholder="example@example.com" />
+                <Input {...field} placeholder="exemple@exemple.com" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -50,10 +50,10 @@ export const SignIn = () => {
           render={({ field }) => (
             <FormItem className="mt-4">
               <FormLabel>
-                <span>Password</span>
+                <span>Mot de passe</span>
 
                 <Link to="/" className="text-primary ml-auto">
-                  Forgot password ?
+                  Mot de passe oublié ?
                 </Link>
               </FormLabel>
               <FormControl>
@@ -64,11 +64,11 @@ export const SignIn = () => {
           )}
         />
 
-        <Button className="mt-5">Sign in</Button>
+        <Button className="mt-5">Se connecter</Button>
 
         <div className="flex items-center gap-4 my-6">
           <Separator className="shrink" />
-          <span className="text-sm text-muted-foreground">OR</span>
+          <span className="text-sm text-muted-foreground">OU</span>
           <Separator className="shrink" />
         </div>
 
@@ -83,9 +83,9 @@ export const SignIn = () => {
         </div>
 
         <div className="text-muted-foreground text-sm mt-4 text-center">
-          <span>Don't have an account ?</span>{" "}
+          <span>Vous n’avez pas de compte ?</span>{" "}
           <Link to="/sign-up" className="text-foreground">
-            Sign Up
+            Créer un compte
           </Link>
         </div>
       </form>

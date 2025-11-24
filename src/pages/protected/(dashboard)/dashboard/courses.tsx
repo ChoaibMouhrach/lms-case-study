@@ -9,17 +9,20 @@ export const Courses = () => {
     <div>
       <div className="flex items-center gap-2">
         <div className="flex items-center gap-1">
-          {["Overview", "Active", "Completed"].map((status) => (
+          {["Aperçu", "Actifs", "Terminés"].map((status) => (
             <Button
               key={status}
-              variant={status === "Overview" ? "outline" : "ghost"}
+              variant={status === "Aperçu" ? "outline" : "ghost"}
             >
               {status}
             </Button>
           ))}
         </div>
 
-        <Search className="max-w-md flex-1" placeholder="Search courses" />
+        <Search
+          className="max-w-md flex-1"
+          placeholder="Rechercher des cours"
+        />
 
         <Button size="icon" variant="outline" className="ml-auto">
           <FilterIcon size={16} />
@@ -27,7 +30,13 @@ export const Courses = () => {
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
         {courses.map((course) => (
-          <CourseCard key={course.id} course={course} />
+          <CourseCard
+            key={course.id}
+            course={{
+              ...course,
+              tags: [...course.tags],
+            }}
+          />
         ))}
       </div>
     </div>

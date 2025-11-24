@@ -52,12 +52,14 @@ const Profile = () => {
           </div>
         </div>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-56">
-        <DropdownMenuItem>Profile</DropdownMenuItem>
-        <DropdownMenuItem>Log out</DropdownMenuItem>
-        <DropdownMenuSeparator />
-        <ThemeSwitcher />
-      </DropdownMenuContent>
+        <DropdownMenuContent align="end" className="w-56">
+          <DropdownMenuItem asChild>
+            <Link to="/profile">Profil</Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem>Se déconnecter</DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <ThemeSwitcher />
+        </DropdownMenuContent>
     </DropdownMenu>
   );
 };
@@ -73,13 +75,13 @@ const ThemeSwitcher = () => {
       className="w-full grid grid-cols-3"
       onValueChange={(value) => value && setTheme(value)}
     >
-      <ToggleGroupItem value="light" aria-label="Light theme">
+      <ToggleGroupItem value="light" aria-label="Thème clair">
         <SunIcon size={8} />
       </ToggleGroupItem>
-      <ToggleGroupItem value="dark" aria-label="Dark theme">
+      <ToggleGroupItem value="dark" aria-label="Thème sombre">
         <Moon size={8} />
       </ToggleGroupItem>
-      <ToggleGroupItem value="system" aria-label="System theme">
+      <ToggleGroupItem value="system" aria-label="Thème système">
         <Monitor size={8} />
       </ToggleGroupItem>
     </ToggleGroup>

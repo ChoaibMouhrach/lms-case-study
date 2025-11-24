@@ -15,9 +15,9 @@ export const DashboardPage = () => {
   return (
     <Dashboard>
       <DashboardHeader>
-        <DashboardTitle>Welcome back, Alex</DashboardTitle>
+        <DashboardTitle>Bon retour, Alex</DashboardTitle>
         <DashboardDescription>
-          Computer science <DotIcon size={16} className="inline" /> 2024/2025
+          Informatique <DotIcon size={16} className="inline" /> 2024/2025
         </DashboardDescription>
       </DashboardHeader>
       <DashboardContent>

@@ -3,22 +3,22 @@ import { BookIcon, CheckCircle2, ClockIcon } from "lucide-react";
 
 const cards = [
   {
-    title: "Active courses",
+    title: "Cours actifs",
     value: "2",
     icon: BookIcon,
   },
   {
-    title: "Pending courses",
+    title: "Cours en attente",
     value: "12",
     icon: ClockIcon,
   },
   {
-    title: "Completed courses",
+    title: "Cours terminés",
     value: "2",
     icon: CheckCircle2,
   },
   {
-    title: "Total coins",
+    title: "Total de pièces",
     value: "3200",
     icon: ({ size }: { size?: number }) => (
       <Coin size={size ? size + 10 : undefined} />

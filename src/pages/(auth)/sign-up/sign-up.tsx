@@ -36,9 +36,9 @@ export const SignUp = () => {
             control={form.control}
             render={({ field }) => (
               <FormItem>
-                <FormLabel>First name</FormLabel>
+                <FormLabel>Prénom</FormLabel>
                 <FormControl>
-                  <Input {...field} placeholder="John" />
+                  <Input {...field} placeholder="Jean" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -50,9 +50,9 @@ export const SignUp = () => {
             control={form.control}
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Last name</FormLabel>
+                <FormLabel>Nom</FormLabel>
                 <FormControl>
-                  <Input {...field} placeholder="Doe" />
+                  <Input {...field} placeholder="Dupont" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -65,9 +65,9 @@ export const SignUp = () => {
           control={form.control}
           render={({ field }) => (
             <FormItem className="mt-4">
-              <FormLabel>Email address</FormLabel>
+              <FormLabel>Adresse e‑mail</FormLabel>
               <FormControl>
-                <Input {...field} placeholder="example@example.com" />
+                  <Input {...field} placeholder="exemple@exemple.com" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -79,7 +79,7 @@ export const SignUp = () => {
           control={form.control}
           render={({ field }) => (
             <FormItem className="mt-4">
-              <FormLabel>Password</FormLabel>
+              <FormLabel>Mot de passe</FormLabel>
               <FormControl>
                 <Password {...field} placeholder="********" />
               </FormControl>
@@ -88,15 +88,15 @@ export const SignUp = () => {
           )}
         />
         <span className="text-xs mt-4 text-muted-foreground">
-          By signing up you agree to our Terms Of Service and Data Processing
-          Agreement
+          En vous inscrivant, vous acceptez nos Conditions d’utilisation et
+          notre Accord de traitement des données
         </span>
 
-        <Button className="mt-5">Sign up</Button>
+        <Button className="mt-5">S’inscrire</Button>
 
         <div className="flex items-center gap-4 my-6">
           <Separator className="shrink" />
-          <span className="text-sm text-muted-foreground">OR</span>
+          <span className="text-sm text-muted-foreground">OU</span>
           <Separator className="shrink" />
         </div>
 
@@ -111,9 +111,9 @@ export const SignUp = () => {
         </div>
 
         <div className="text-muted-foreground text-sm mt-4 text-center">
-          <span>Don't have an account ?</span>{" "}
+          <span>Vous avez déjà un compte ?</span>{" "}
           <Link to="/sign-in" className="text-foreground">
-            Sign In
+            Se connecter
           </Link>
         </div>
       </form>

@@ -70,7 +70,7 @@ export const LeaderBoard = () => {
               >
                 {user.name}
                 {index === 3 && (
-                  <span className="text-primary ml-1 text-sm">(You)</span>
+                  <span className="text-primary ml-1 text-sm">(Vous)</span>
                 )}
               </div>
             </td>
