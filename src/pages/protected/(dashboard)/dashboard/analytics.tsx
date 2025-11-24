@@ -3,23 +3,23 @@ import { BookIcon, CheckCircle2, ClockIcon } from "lucide-react";
 
 const cards = [
   {
-    title: "Cours actifs",
-    value: "2",
+    title: "Cours S1",
+    value: "6",
     icon: BookIcon,
   },
   {
-    title: "Cours en attente",
-    value: "12",
+    title: "En cours",
+    value: "4",
     icon: ClockIcon,
   },
   {
-    title: "Cours terminés",
+    title: "Validés",
     value: "2",
     icon: CheckCircle2,
   },
   {
-    title: "Total de pièces",
-    value: "3200",
+    title: "Points ECTS",
+    value: "18",
     icon: ({ size }: { size?: number }) => (
       <Coin size={size ? size + 10 : undefined} />
     ),
@@ -28,15 +28,20 @@ const cards = [
 
 export const Analytics = () => {
   return (
-    <div className="grid grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
       {cards.map(({ icon: Icon, ...card }, index) => (
-        <div key={index} className="bg-background rounded-md border p-4">
-          <div className="flex items-end justify-between text-muted-foreground">
-            <span className="text-sm block">{card.title}</span>
+        <div key={index} className="bg-background rounded-md border p-3 sm:p-4">
+          <div className="flex items-end justify-between text-muted-foreground mb-2">
+            <span className="text-xs sm:text-sm block leading-tight">
+              {card.title}
+            </span>
           </div>
-          <div className="flex items-center gap-1">
-            <span className="text-xl font-semibold">{card.value}</span>
-            <Icon size={18} />
+          <div className="flex items-center gap-1 sm:gap-2">
+            <span className="text-lg sm:text-xl font-semibold">
+              {card.value}
+            </span>
+            <Icon size={16} className="sm:hidden" />
+            <Icon size={18} className="hidden sm:block" />
           </div>
         </div>
       ))}

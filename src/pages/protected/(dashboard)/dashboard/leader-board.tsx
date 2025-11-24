@@ -9,85 +9,110 @@ import { cn } from "@/lib/utils";
 const users = [
   {
     id: 1,
-    name: "Amina Khalil",
-    username: "amina_k",
+    name: "Léa Moreau-Chen",
+    username: "lea_mc",
     avatar: "https://randomuser.me/api/portraits/women/44.jpg",
     rank: 1,
-    points: 1240,
+    points: 22,
   },
   {
     id: 2,
-    name: "Lucas Meyer",
-    username: "lucas_m",
+    name: "Antoine Bélanger",
+    username: "antoine_b",
     avatar: "https://randomuser.me/api/portraits/men/32.jpg",
     rank: 2,
-    points: 1175,
+    points: 21,
   },
   {
     id: 3,
-    name: "Sara Ito",
-    username: "sara_ito",
+    name: "Nadia Al-Hassan",
+    username: "nadia_ah",
     avatar: "https://randomuser.me/api/portraits/women/68.jpg",
     rank: 3,
-    points: 1090,
+    points: 20,
   },
   {
     id: 6,
-    name: "Daniel Park",
-    username: "danielp",
+    name: "Alex Martin",
+    username: "alexm",
     avatar: "https://randomuser.me/api/portraits/men/11.jpg",
-    rank: 22,
-    points: 980,
+    rank: 8,
+    points: 18,
   },
 ];
 
 export const LeaderBoard = () => {
   return (
-    <table>
-      <tbody className="gap-4">
+    <div className="bg-background rounded-md border p-4">
+      <h3 className="font-semibold text-sm mb-3">Classement</h3>
+      <div className="space-y-2">
         {users.map((user, index) => (
-          <tr key={user.id}>
-            <td className="pb-1">
-              <div
-                className={cn(
-                  "border-l border-y h-12 bg-background flex items-center justify-center rounded-l pl-2",
-                  index === 0 ? "border-primary" : ""
-                )}
-              >
-                {user.rank === 1 && <FirstPlace size={28} />}
-                {user.rank === 2 && <SecondPlace size={28} />}
-                {user.rank === 3 && <ThirdPlace size={28} />}
+          <div
+            key={user.id}
+            className={cn(
+              "flex items-center gap-3 p-2 rounded-md border bg-background/50",
+              index === 0 ? "border-primary bg-primary/5" : "",
+            )}
+          >
+            <div className="flex items-center justify-center w-8 h-8 shrink-0">
+              {user.rank === 1 && (
+                <div className="sm:hidden">
+                  <FirstPlace size={24} />
+                </div>
+              )}
+              {user.rank === 1 && (
+                <div className="hidden sm:block">
+                  <FirstPlace size={28} />
+                </div>
+              )}
+              {user.rank === 2 && (
+                <div className="sm:hidden">
+                  <SecondPlace size={24} />
+                </div>
+              )}
+              {user.rank === 2 && (
+                <div className="hidden sm:block">
+                  <SecondPlace size={28} />
+                </div>
+              )}
+              {user.rank === 3 && (
+                <div className="sm:hidden">
+                  <ThirdPlace size={24} />
+                </div>
+              )}
+              {user.rank === 3 && (
+                <div className="hidden sm:block">
+                  <ThirdPlace size={28} />
+                </div>
+              )}
+              {user.rank > 3 && (
+                <span className="text-sm font-medium">{user.rank}</span>
+              )}
+            </div>
 
-                {user.rank > 3 && user.rank}
-              </div>
-            </td>
-            <td className="pb-1">
-              <div
-                className={cn(
-                  "border-y h-12 bg-background flex items-center pl-3",
-                  index === 0 ? "border-primary" : ""
-                )}
-              >
-                {user.name}
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-medium truncate">
+                  {user.name}
+                </span>
                 {index === 3 && (
-                  <span className="text-primary ml-1 text-sm">(Vous)</span>
+                  <span className="text-primary text-xs">(Vous)</span>
                 )}
               </div>
-            </td>
-            <td className="pb-1">
-              <div
-                className={cn(
-                  "border-r border-y h-12 bg-background flex items-center pr-3 rounded-r text-primary ",
-                  index === 0 ? "border-primary" : ""
-                )}
-              >
-                <Coin size={24} />
-                {user.points}
+            </div>
+
+            <div className="flex items-center gap-1 text-primary font-medium text-sm">
+              <div className="sm:hidden">
+                <Coin size={18} />
               </div>
-            </td>
-          </tr>
+              <div className="hidden sm:block">
+                <Coin size={20} />
+              </div>
+              <span>{user.points}</span>
+            </div>
+          </div>
         ))}
-      </tbody>
-    </table>
+      </div>
+    </div>
   );
 };

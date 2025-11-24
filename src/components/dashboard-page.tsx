@@ -11,7 +11,10 @@ export const Dashboard: React.FC<DashboardProps> = ({
 }) => {
   return (
     <div
-      className={cn("flex flex-col gap-8 py-8 container mx-auto", className)}
+      className={cn(
+        "flex flex-col gap-8 py-8 container mx-auto px-4 sm:px-6 lg:px-8",
+        className,
+      )}
     >
       {children}
     </div>

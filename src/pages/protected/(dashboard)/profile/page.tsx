@@ -1,9 +1,32 @@
-import { Dashboard, DashboardContent, DashboardHeader, DashboardTitle, DashboardDescription } from "@/components/dashboard-page";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  Dashboard,
+  DashboardContent,
+  DashboardHeader,
+  DashboardTitle,
+  DashboardDescription,
+} from "@/components/dashboard-page";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Password } from "@/components/custom/password";
 import { Button } from "@/components/ui/button";
-import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,9 +39,15 @@ const profileSchema = z.object({
 
 const passwordSchema = z
   .object({
-    currentPassword: z.string().min(6, { message: "Mot de passe actuel requis" }),
-    newPassword: z.string().min(6, { message: "Nouveau mot de passe trop court" }),
-    confirmPassword: z.string().min(6, { message: "Confirmez le nouveau mot de passe" }),
+    currentPassword: z
+      .string()
+      .min(6, { message: "Mot de passe actuel requis" }),
+    newPassword: z
+      .string()
+      .min(6, { message: "Nouveau mot de passe trop court" }),
+    confirmPassword: z
+      .string()
+      .min(6, { message: "Confirmez le nouveau mot de passe" }),
   })
   .refine((data) => data.newPassword === data.confirmPassword, {
     message: "Les mots de passe ne correspondent pas",
@@ -28,12 +57,19 @@ const passwordSchema = z
 export const ProfilePage = () => {
   const profileForm = useForm<z.infer<typeof profileSchema>>({
     resolver: zodResolver(profileSchema),
-    defaultValues: { fullName: "Alex Martin", email: "alex.martin@example.com" },
+    defaultValues: {
+      fullName: "Alex Martin",
+      email: "alex.martin@financeinter.ca",
+    },
   });
 
   const passwordForm = useForm<z.infer<typeof passwordSchema>>({
     resolver: zodResolver(passwordSchema),
-    defaultValues: { currentPassword: "", newPassword: "", confirmPassword: "" },
+    defaultValues: {
+      currentPassword: "",
+      newPassword: "",
+      confirmPassword: "",
+    },
   });
 
   const onSaveProfile = (values: z.infer<typeof profileSchema>) => {
@@ -47,19 +83,23 @@ export const ProfilePage = () => {
   return (
     <Dashboard>
       <DashboardHeader>
-        <DashboardTitle>Profil</DashboardTitle>
+        <DashboardTitle>Profil Étudiant</DashboardTitle>
         <DashboardDescription>
-          Gérez vos informations personnelles, votre e‑mail et votre mot de passe.
+          Master Finance Internationale - Gestion de votre dossier académique et
+          informations personnelles.
         </DashboardDescription>
       </DashboardHeader>
 
       <DashboardContent>
-        <div className="grid grid-cols-3 gap-6">
-          <div className="col-start-1 col-end-3 flex flex-col gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2 flex flex-col gap-6">
             <div className="bg-background rounded-md border p-4">
               <span className="text-lg">Informations personnelles</span>
               <Form {...profileForm}>
-                <form className="mt-4 flex flex-col gap-4" onSubmit={profileForm.handleSubmit(onSaveProfile)}>
+                <form
+                  className="mt-4 flex flex-col gap-4"
+                  onSubmit={profileForm.handleSubmit(onSaveProfile)}
+                >
                   <FormField
                     name="fullName"
                     control={profileForm.control}
@@ -67,7 +107,7 @@ export const ProfilePage = () => {
                       <FormItem>
                         <FormLabel>Nom complet</FormLabel>
                         <FormControl>
-                          <Input {...field} placeholder="Votre nom" />
+                          <Input {...field} placeholder="Alex Martin" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -78,9 +118,12 @@ export const ProfilePage = () => {
                     control={profileForm.control}
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Adresse e‑mail</FormLabel>
+                        <FormLabel>Adresse e‑mail universitaire</FormLabel>
                         <FormControl>
-                          <Input {...field} placeholder="exemple@exemple.com" />
+                          <Input
+                            {...field}
+                            placeholder="prenom.nom@financeinter.ca"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -94,9 +137,12 @@ export const ProfilePage = () => {
             </div>
 
             <div className="bg-background rounded-md border p-4">
-              <span className="text-lg">Changer le mot de passe</span>
+              <span className="text-lg">Sécurité du compte</span>
               <Form {...passwordForm}>
-                <form className="mt-4 flex flex-col gap-4" onSubmit={passwordForm.handleSubmit(onChangePassword)}>
+                <form
+                  className="mt-4 flex flex-col gap-4"
+                  onSubmit={passwordForm.handleSubmit(onChangePassword)}
+                >
                   <FormField
                     name="currentPassword"
                     control={passwordForm.control}
@@ -110,7 +156,7 @@ export const ProfilePage = () => {
                       </FormItem>
                     )}
                   />
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <FormField
                       name="newPassword"
                       control={passwordForm.control}
@@ -146,27 +192,34 @@ export const ProfilePage = () => {
             </div>
           </div>
 
-          <div className="col-start-3 col-end-4 flex flex-col gap-6">
+          <div className="lg:col-span-1 flex flex-col gap-6">
             <div className="bg-background rounded-md border p-4">
-              <span className="text-lg">Supprimer le compte</span>
+              <span className="text-lg">Suspension du dossier</span>
               <p className="text-sm text-muted-foreground mt-2">
-                Cette action est définitive. Toutes vos données associées seront supprimées.
+                Attention : cette action suspend votre inscription au Master et
+                supprime l'accès aux ressources pédagogiques.
               </p>
               <Separator className="my-4" />
               <AlertDialog>
                 <AlertDialogTrigger asChild>
-                  <Button variant="destructive">Supprimer le compte</Button>
+                  <Button variant="destructive">Suspendre l'inscription</Button>
                 </AlertDialogTrigger>
                 <AlertDialogContent>
                   <AlertDialogHeader>
-                    <AlertDialogTitle>Supprimer définitivement votre compte ?</AlertDialogTitle>
+                    <AlertDialogTitle>
+                      Suspendre définitivement votre inscription au Master ?
+                    </AlertDialogTitle>
                     <AlertDialogDescription>
-                      Cette action est irréversible. Confirmez la suppression de votre compte.
+                      Cette action est irréversible. Vous perdrez l'accès à
+                      votre dossier académique et aux contenus pédagogiques du
+                      programme.
                     </AlertDialogDescription>
                   </AlertDialogHeader>
                   <AlertDialogFooter>
                     <AlertDialogCancel>Annuler</AlertDialogCancel>
-                    <AlertDialogAction>Confirmer la suppression</AlertDialogAction>
+                    <AlertDialogAction>
+                      Confirmer la suspension
+                    </AlertDialogAction>
                   </AlertDialogFooter>
                 </AlertDialogContent>
               </AlertDialog>
@@ -177,4 +230,3 @@ export const ProfilePage = () => {
     </Dashboard>
   );
 };
-

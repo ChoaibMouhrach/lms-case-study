@@ -36,7 +36,6 @@ import {
 import { useForm } from "react-hook-form";
 import { Textarea } from "@/components/ui/textarea";
 import { Progress } from "@/components/ui/progress";
-import { Coin } from "@/components/icons/ranks";
 
 type CourseType = (typeof courses)[number];
 type LessonType = CourseType["chapters"][number]["lessons"][number];
@@ -94,7 +93,7 @@ const Lesson: React.FC<LessonProps> = ({ lesson }) => {
   const [currentMaterial, setCurrentMaterial] = useState<number>(0);
 
   const progressPercentage = Math.round(
-    (currentMaterial / lesson.learningMaterials.length) * 100
+    (currentMaterial / lesson.learningMaterials.length) * 100,
   );
 
   const getMaterialIcon = (type: string) => {
@@ -117,7 +116,7 @@ const Lesson: React.FC<LessonProps> = ({ lesson }) => {
   };
 
   const getMaterialDuration = (
-    material: (typeof lesson.learningMaterials)[number]
+    material: (typeof lesson.learningMaterials)[number],
   ) => {
     if ("duration" in material && material.duration) {
       return material.duration;
@@ -148,8 +147,8 @@ const Lesson: React.FC<LessonProps> = ({ lesson }) => {
   };
 
   return (
-    <div className="grid grid-cols-3 gap-6">
-      <div className="col-start-1 col-end-3 gap-4">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="lg:col-start-1 lg:col-end-3 gap-4">
         {currentMaterial < lesson.learningMaterials.length && (
           <iframe
             src={lesson.learningMaterials[currentMaterial].url}
@@ -175,7 +174,7 @@ const Lesson: React.FC<LessonProps> = ({ lesson }) => {
                       "true-false",
                       "multiple-choice",
                       "ordering",
-                    ].includes(question.type)
+                    ].includes(question.type),
                   )
                   .map((question) => (
                     <FormField
@@ -207,8 +206,11 @@ const Lesson: React.FC<LessonProps> = ({ lesson }) => {
                               {(question.type === "multiple-choice" ||
                                 question.type === "multiple-select") && (
                                 <div className="gap-1 flex flex-col text-sm text-muted-foreground">
-                                  {question.options.map((option) => (
-                                    <div className="border rounded-md bg-muted/60 p-2 text-sm">
+                                  {question.options?.map((option) => (
+                                    <div
+                                      key={option.id}
+                                      className="border rounded-md bg-muted/60 p-2 text-sm"
+                                    >
                                       <CircleIcon
                                         size={14}
                                         className="inline mr-2"
@@ -221,8 +223,11 @@ const Lesson: React.FC<LessonProps> = ({ lesson }) => {
 
                               {question.type === "ordering" && (
                                 <div className="gap-1 flex flex-col text-sm text-muted-foreground">
-                                  {question.items.map((option) => (
-                                    <div className="border rounded-md bg-muted/60 p-2 text-sm">
+                                  {question.items?.map((option) => (
+                                    <div
+                                      key={option.id}
+                                      className="border rounded-md bg-muted/60 p-2 text-sm"
+                                    >
                                       <GripHorizontal
                                         size={14}
                                         className="inline mr-2"
@@ -243,7 +248,7 @@ const Lesson: React.FC<LessonProps> = ({ lesson }) => {
                     />
                   ))}
               </div>
-              <Button className="mt-4">Soumettre le quiz</Button>
+              <Button className="mt-4">Soumettre les réponses</Button>
             </form>
           </Form>
         )}
@@ -253,16 +258,16 @@ const Lesson: React.FC<LessonProps> = ({ lesson }) => {
             className="mt-2"
             onClick={() => setCurrentMaterial((cm) => cm + 1)}
           >
-            Terminer et continuer
+            Marquer comme terminé
           </Button>
         )}
       </div>
-      <div className="">
-        <div className="flex flex-col sticky top-4 gap-2">
+      <div className="lg:col-start-3 lg:col-end-4">
+        <div className="flex flex-col lg:sticky lg:top-4 gap-2">
           <div className="border rounded-md bg-background p-4 flex items-center">
-            <span>Récompense</span>
+            <span>Crédits ECTS</span>
             <span className="ml-auto text-primary flex items-center">
-              +100 <Coin size={24} />
+              +2 ECTS
             </span>
           </div>
 
@@ -286,7 +291,7 @@ const Lesson: React.FC<LessonProps> = ({ lesson }) => {
                 index > currentMaterial
                   ? "text-muted-foreground cursor-not-allowed"
                   : "hover:bg-muted cursor-pointer",
-                index === currentMaterial && "ring-2 ring-primary"
+                index === currentMaterial && "ring-2 ring-primary",
               )}
             >
               <div className="flex items-start gap-2">
@@ -323,7 +328,7 @@ const Lesson: React.FC<LessonProps> = ({ lesson }) => {
                 ? "text-muted-foreground cursor-not-allowed"
                 : "hover:bg-muted cursor-pointer",
               lesson.learningMaterials.length === currentMaterial &&
-                "ring-2 ring-primary"
+                "ring-2 ring-primary",
             )}
           >
             <div className="flex items-center gap-2">

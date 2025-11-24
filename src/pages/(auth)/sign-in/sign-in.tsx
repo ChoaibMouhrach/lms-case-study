@@ -49,10 +49,9 @@ export const SignIn = () => {
           control={form.control}
           render={({ field }) => (
             <FormItem className="mt-4">
-              <FormLabel>
+              <FormLabel className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-0">
                 <span>Mot de passe</span>
-
-                <Link to="/" className="text-primary ml-auto">
+                <Link to="/" className="text-primary text-sm">
                   Mot de passe oublié ?
                 </Link>
               </FormLabel>
@@ -72,19 +71,23 @@ export const SignIn = () => {
           <Separator className="shrink" />
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
-          <Button variant="secondary">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+          <Button variant="secondary" className="w-full">
             <GoogleIcon size={16} />
-            Google
+            <span className="ml-2">Google</span>
           </Button>
-          <Button variant="secondary">
-            <GithubIcon size={16} /> Github
+          <Button variant="secondary" className="w-full">
+            <GithubIcon size={16} />
+            <span className="ml-2">Github</span>
           </Button>
         </div>
 
-        <div className="text-muted-foreground text-sm mt-4 text-center">
-          <span>Vous n’avez pas de compte ?</span>{" "}
-          <Link to="/sign-up" className="text-foreground">
+        <div className="text-muted-foreground text-sm mt-6 text-center">
+          <span>Vous n'avez pas de compte ?</span>{" "}
+          <Link
+            to="/sign-up"
+            className="text-foreground underline underline-offset-2"
+          >
             Créer un compte
           </Link>
         </div>

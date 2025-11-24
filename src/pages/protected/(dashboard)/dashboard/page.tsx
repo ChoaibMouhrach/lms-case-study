@@ -17,18 +17,19 @@ export const DashboardPage = () => {
       <DashboardHeader>
         <DashboardTitle>Bon retour, Alex</DashboardTitle>
         <DashboardDescription>
-          Informatique <DotIcon size={16} className="inline" /> 2024/2025
+          Master Finance Internationale <DotIcon size={16} className="inline" />{" "}
+          Semestre 1 - 2024/2025
         </DashboardDescription>
       </DashboardHeader>
       <DashboardContent>
         <div>
           <Analytics />
         </div>
-        <div className="grid grid-cols-4 gap-6 mt-6">
-          <div className="col-start-1 col-end-4">
+        <div className="grid grid-cols-1 xl:grid-cols-4 gap-6 mt-6">
+          <div className="xl:col-span-3">
             <Courses />
           </div>
-          <div className="flex flex-col gap-4">
+          <div className="xl:col-span-1 flex flex-col gap-4">
             <Rank />
             <LeaderBoard />
           </div>

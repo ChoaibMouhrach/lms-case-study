@@ -41,9 +41,11 @@ export const CoursePage = () => {
   return (
     <Dashboard>
       <DashboardContent>
-        <div className="grid grid-cols-3 gap-6">
-          <CourseInfo course={course} />
-          <div className="col-start-2 col-end-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-1">
+            <CourseInfo course={course} />
+          </div>
+          <div className="lg:col-span-2">
             <div className="rounded-md flex flex-col gap-4">
               {course.chapters.map((chapter, chapterIndex) => (
                 <ChapterCard
@@ -86,7 +88,7 @@ const LessonCard: React.FC<LessonCardProps> = ({ lesson, courseId }) => {
         "p-3 bg-muted/40 rounded-md border hover:bg-muted/60 select-none cursor-pointer",
         lesson.title !== "Variables et types de données" && !lesson.isCompleted
           ? "text-muted-foreground"
-          : ""
+          : "",
       )}
     >
       <div className="flex items-start">
