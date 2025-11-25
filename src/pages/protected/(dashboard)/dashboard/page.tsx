@@ -17,8 +17,12 @@ export const DashboardPage = () => {
       <DashboardHeader>
         <DashboardTitle>Bon retour, Alex</DashboardTitle>
         <DashboardDescription>
-          Master Finance Internationale <DotIcon size={16} className="inline" />{" "}
-          Semestre 1 - 2024/2025
+          Master 2 Finance Internationale <DotIcon size={16} className="inline" />{" "}
+          Semestre 1 - Année universitaire 2024/2025
+          <br />
+          <span className="text-xs text-muted-foreground mt-1 block">
+            École Supérieure de Finance Internationale - Campus Lyon Gerland
+          </span>
         </DashboardDescription>
       </DashboardHeader>
       <DashboardContent>

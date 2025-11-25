@@ -6,6 +6,14 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import {
   CalendarIcon,
   ChevronRight,
   ChevronsUpDown,
@@ -22,6 +30,7 @@ type CourseType = (typeof courses)[number];
 
 export const CoursePage = () => {
   const { courseId } = useParams({ strict: false });
+  const navigate = useNavigate();
 
   // Find the course based on the route parameter
   const course = courses.find((c) => c.id === courseId);
@@ -41,11 +50,39 @@ export const CoursePage = () => {
   return (
     <Dashboard>
       <DashboardContent>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-1">
+        <div className="mb-6">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink
+                  onClick={() => navigate({ to: "/dashboard" })}
+                  className="cursor-pointer"
+                >
+                  Tableau de bord
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink
+                  onClick={() => navigate({ to: "/dashboard" })}
+                  className="cursor-pointer"
+                >
+                  Cours
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{course.courseCode} - {course.title}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+          <div className="lg:col-start-1 lg:col-end-3">
             <CourseInfo course={course} />
           </div>
-          <div className="lg:col-span-2">
+          <div className="lg:col-start-3 lg:col-end-6">
             <div className="rounded-md flex flex-col gap-4">
               {course.chapters.map((chapter, chapterIndex) => (
                 <ChapterCard
@@ -88,7 +125,7 @@ const LessonCard: React.FC<LessonCardProps> = ({ lesson, courseId }) => {
         "p-3 bg-muted/40 rounded-md border hover:bg-muted/60 select-none cursor-pointer",
         lesson.title !== "Variables et types de données" && !lesson.isCompleted
           ? "text-muted-foreground"
-          : "",
+          : ""
       )}
     >
       <div className="flex items-start">
@@ -167,20 +204,27 @@ interface CourseInfoProps {
 const CourseInfo: React.FC<CourseInfoProps> = ({ course }) => {
   // Calculate real progress based on completed lessons
   const calculateProgress = () => {
-    const totalLessons = course.chapters.reduce((total, chapter) => total + chapter.lessons.length, 0);
-    const completedLessons = course.chapters.reduce(
-      (completed, chapter) =>
-        completed + chapter.lessons.filter(lesson => lesson.isCompleted).length,
+    const totalLessons = course.chapters.reduce(
+      (total, chapter) => total + chapter.lessons.length,
       0
     );
-    return totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0;
+    const completedLessons = course.chapters.reduce(
+      (completed, chapter) =>
+        completed +
+        chapter.lessons.filter((lesson) => lesson.isCompleted).length,
+      0
+    );
+    return totalLessons > 0
+      ? Math.round((completedLessons / totalLessons) * 100)
+      : 0;
   };
 
   // Calculate total pieces earned from completed lessons
   const calculatePieces = () => {
     return course.chapters.reduce(
       (total, chapter) =>
-        total + chapter.lessons.filter(lesson => lesson.isCompleted).length * 10,
+        total +
+        chapter.lessons.filter((lesson) => lesson.isCompleted).length * 10,
       0
     );
   };
@@ -198,6 +242,14 @@ const CourseInfo: React.FC<CourseInfoProps> = ({ course }) => {
 
         <div className="absolute top-0 right-0 bg-black/60 w-full h-full flex items-end text-white p-4">
           <div>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-xs bg-white/20 px-2 py-1 rounded">
+                {course.courseCode}
+              </span>
+              <span className="text-xs bg-white/20 px-2 py-1 rounded">
+                {course.ects} ECTS
+              </span>
+            </div>
             <span className="block text-xl">{course.title}</span>
             <p className="mt-1 text-white/80 max-w-md">{course.description}</p>
 
@@ -240,6 +292,43 @@ const CourseInfo: React.FC<CourseInfoProps> = ({ course }) => {
             </div>
 
             <Progress value={actualProgress} className="mt-4 h-2.5" />
+          </div>
+
+          <div className="space-y-2 text-sm mt-4">
+            <div className="flex items-center justify-between">
+              <span className="text-muted-foreground">Enseignant</span>
+              <div className="text-right">
+                <span className="">{course.instructor.name}</span>
+                <br />
+                <span className="text-xs text-muted-foreground">
+                  {course.instructor.title}
+                </span>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <span className="text-muted-foreground">Semestre</span>
+              <span className="">{course.semester}</span>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <span className="text-muted-foreground">Prérequis</span>
+              <span className=" text-right max-w-[200px]">
+                {course.prerequisite}
+              </span>
+            </div>
+
+            <div className="flex items-start justify-between">
+              <span className="text-muted-foreground">Évaluation</span>
+              <span className=" text-right max-w-[200px] leading-tight">
+                {course.evaluationMethod}
+              </span>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <span className="text-muted-foreground">Étudiants inscrits</span>
+              <span className="">{course.studentsEnrolled}</span>
+            </div>
           </div>
         </div>
       </div>

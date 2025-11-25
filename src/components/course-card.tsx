@@ -11,6 +11,8 @@ interface CourseCardProps {
     description: string;
     tags: string[];
     thumbnail: string;
+    courseCode: string;
+    ects: number;
     instructor: {
       name: string;
     };
@@ -39,6 +41,14 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
         className="aspect-video object-cover w-full"
       />
       <div className="p-3 sm:p-4">
+        <div className="flex items-center gap-2 mb-2">
+          <Badge variant="outline" className="text-xs px-2 py-0.5">
+            {course.courseCode}
+          </Badge>
+          <Badge variant="secondary" className="text-xs px-2 py-0.5">
+            {course.ects} ECTS
+          </Badge>
+        </div>
         <h3
           className="font-medium text-sm sm:text-base leading-tight overflow-hidden"
           style={{

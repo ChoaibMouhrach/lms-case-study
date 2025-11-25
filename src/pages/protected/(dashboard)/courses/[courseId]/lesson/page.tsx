@@ -6,6 +6,14 @@ import {
   DashboardTitle,
 } from "@/components/dashboard-page";
 import { Button } from "@/components/ui/button";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import { courses, quizObject } from "@/constants";
 import { cn } from "@/lib/utils";
 import {
@@ -23,7 +31,7 @@ import {
   ClipboardType,
 } from "lucide-react";
 import { useState } from "react";
-import { useParams } from "@tanstack/react-router";
+import { useParams, useNavigate } from "@tanstack/react-router";
 import {
   Form,
   FormControl,
@@ -42,6 +50,7 @@ type LessonType = CourseType["chapters"][number]["lessons"][number];
 
 export const LessonPage = () => {
   const { courseId, lessonId } = useParams({ strict: false });
+  const navigate = useNavigate();
 
   // Find the course and lesson based on the route parameters
   const course = courses.find((c) => c.id === courseId);
@@ -71,11 +80,49 @@ export const LessonPage = () => {
 
   return (
     <Dashboard>
-      <DashboardHeader>
-        <DashboardTitle>{lesson.title}</DashboardTitle>
-        <DashboardDescription>{lesson.description}</DashboardDescription>
-      </DashboardHeader>
       <DashboardContent>
+        <div className="mb-6">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink
+                  onClick={() => navigate({ to: "/dashboard" })}
+                  className="cursor-pointer"
+                >
+                  Tableau de bord
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink
+                  onClick={() => navigate({ to: "/dashboard" })}
+                  className="cursor-pointer"
+                >
+                  Cours
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink
+                  onClick={() => navigate({ to: `/courses/${courseId}` })}
+                  className="cursor-pointer"
+                >
+                  {course?.courseCode} - {course?.title}
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{lesson.title}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+
+        <div className="mb-6">
+          <h1 className="text-2xl font-semibold">{lesson.title}</h1>
+          <p className="text-muted-foreground mt-1">{lesson.description}</p>
+        </div>
+
         <Lesson lesson={lesson} />
       </DashboardContent>
     </Dashboard>

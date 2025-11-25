@@ -1,25 +1,32 @@
 export const courses = [
   {
     id: "course_001",
+    courseCode: "FIN301",
     title: "Finance Internationale Avancée",
     subtitle: "Gestion financière dans un environnement global",
     description:
       "Maîtrisez les techniques de financement international, la gestion des risques de change et l'analyse des marchés financiers globaux pour optimiser les performances financières.",
     instructor: {
       name: "Dr. Sarah El Alaoui",
+      title: "Professeure des Universités",
+      credentials: "Doctorat en Finance, ESCP Business School",
       avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b829",
     },
-    thumbnail: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f",
+    thumbnail: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     duration: "15h 30m",
+    ects: 6,
+    semester: "Semestre 1",
+    prerequisite: "FIN201 - Finance d'Entreprise",
     difficulty: "Intermédiaire",
     categories: ["Finance", "Commerce International", "Gestion Financière"],
     level: 2,
     studentsEnrolled: 34,
     rating: 4.7,
+    evaluationMethod: "Contrôle continu (40%) + Examen final (60%)",
     tags: ["finance", "international", "investissement", "devises"],
     updatedAt: "2024-12-01T10:00:00Z",
     isFree: false,
-    price: { amount: 0, currency: "CAD" },
+    price: { amount: 0, currency: "EUR" },
     progress: 65,
     chapters: [
       {
@@ -229,6 +236,7 @@ export const courses = [
   },
   {
     id: "course_002",
+    courseCode: "MGT305",
     title: "Management de l'Innovation",
     subtitle:
       "Stratégies et outils pour innover dans un contexte international",
@@ -236,19 +244,25 @@ export const courses = [
       "Comprendre les enjeux de l'innovation dans les organisations internationales et maîtriser les outils de management de l'innovation.",
     instructor: {
       name: "Prof. Michel Bergeron",
+      title: "Maître de Conférences HDR",
+      credentials: "Doctorat en Sciences de Gestion, HEC Paris",
       avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
     },
-    thumbnail: "https://images.unsplash.com/photo-1553484771-371a605b060b",
+    thumbnail: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     duration: "12h 45m",
+    ects: 4,
+    semester: "Semestre 2",
+    prerequisite: "MGT201 - Management Général",
     difficulty: "Avancé",
     categories: ["Management", "Innovation", "Stratégie"],
     level: 3,
     studentsEnrolled: 28,
     rating: 4.8,
+    evaluationMethod: "Projet de groupe (50%) + Présentation orale (30%) + QCM (20%)",
     tags: ["innovation", "management", "stratégie", "r&d"],
     updatedAt: "2024-11-28T14:30:00Z",
     isFree: false,
-    price: { amount: 0, currency: "CAD" },
+    price: { amount: 0, currency: "EUR" },
     progress: 35,
     chapters: [
       {
@@ -287,25 +301,32 @@ export const courses = [
   },
   {
     id: "course_003",
+    courseCode: "FIN302",
     title: "Finance Internationale",
     subtitle: "Marchés financiers et gestion des risques internationaux",
     description:
       "Analyse approfondie des marchés financiers internationaux, des instruments de change et de la gestion des risques financiers.",
     instructor: {
       name: "Dr. Marie-Claire Dubois",
+      title: "Professeure Associée",
+      credentials: "Doctorat en Finance Quantitative, Université Paris-Dauphine",
       avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
     },
-    thumbnail: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3",
+    thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     duration: "18h 20m",
+    ects: 5,
+    semester: "Semestre 1",
+    prerequisite: "FIN301 - Finance Internationale Avancée",
     difficulty: "Avancé",
     categories: ["Finance", "International", "Risques"],
     level: 3,
     studentsEnrolled: 31,
     rating: 4.9,
+    evaluationMethod: "Examen écrit (70%) + Étude de cas (30%)",
     tags: ["finance", "change", "risques", "marchés"],
     updatedAt: "2024-12-05T09:15:00Z",
     isFree: false,
-    price: { amount: 0, currency: "CAD" },
+    price: { amount: 0, currency: "EUR" },
     progress: 20,
     chapters: [
       {
@@ -344,25 +365,32 @@ export const courses = [
   },
   {
     id: "course_004",
+    courseCode: "INF204",
     title: "Analyse de Données des Systèmes d'Information",
     subtitle: "Big Data et aide à la décision en finance internationale",
     description:
       "Utilisation des outils d'analyse de données pour optimiser les décisions financières et commerciales internationales.",
     instructor: {
       name: "Prof. Jean-Philippe Roy",
+      title: "Professeur des Universités",
+      credentials: "Doctorat en Informatique, École Polytechnique",
       avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
     },
-    thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+    thumbnail: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.0.3&ixid=M3wxMJA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     duration: "14h 10m",
+    ects: 4,
+    semester: "Semestre 2",
+    prerequisite: "INF101 - Informatique de Base",
     difficulty: "Intermédiaire",
     categories: ["Data", "Analyse", "Systèmes"],
     level: 2,
     studentsEnrolled: 29,
     rating: 4.6,
+    evaluationMethod: "TP notés (40%) + Projet (40%) + Examen final (20%)",
     tags: ["data", "analyse", "python", "excel"],
     updatedAt: "2024-11-30T16:45:00Z",
     isFree: false,
-    price: { amount: 0, currency: "CAD" },
+    price: { amount: 0, currency: "EUR" },
     progress: 45,
     chapters: [
       {
@@ -401,25 +429,32 @@ export const courses = [
   },
   {
     id: "course_005",
+    courseCode: "DRT203",
     title: "Droit des Sociétés",
     subtitle: "Structures juridiques des entreprises internationales",
     description:
       "Étude comparative des formes sociales et gouvernance d'entreprise dans un contexte international.",
     instructor: {
       name: "Me. Robert Gagnon",
+      title: "Maître de Conférences",
+      credentials: "Doctorat en Droit des Affaires, Université Sorbonne",
       avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7",
     },
-    thumbnail: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f",
+    thumbnail: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     duration: "11h 35m",
+    ects: 3,
+    semester: "Semestre 1",
+    prerequisite: "DRT101 - Introduction au Droit",
     difficulty: "Intermédiaire",
     categories: ["Droit", "Sociétés", "Gouvernance"],
     level: 2,
     studentsEnrolled: 32,
     rating: 4.5,
+    evaluationMethod: "Cas pratiques (50%) + Examen oral (50%)",
     tags: ["droit", "sociétés", "gouvernance", "compliance"],
     updatedAt: "2024-12-02T11:20:00Z",
     isFree: false,
-    price: { amount: 0, currency: "CAD" },
+    price: { amount: 0, currency: "EUR" },
     progress: 55,
     chapters: [
       {
@@ -458,6 +493,7 @@ export const courses = [
   },
   {
     id: "course_006",
+    courseCode: "LAN102",
     title: "Techniques de Communication: Anglais et Français",
     subtitle:
       "Communication professionnelle bilingue en contexte international",
@@ -465,19 +501,25 @@ export const courses = [
       "Développement des compétences en communication écrite et orale en français et en anglais pour les affaires internationales.",
     instructor: {
       name: "Prof. Sarah Mitchell-Tremblay",
+      title: "Professeure Certifiée",
+      credentials: "Master en Langues Appliquées, INALCO Paris",
       avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f",
     },
-    thumbnail: "https://images.unsplash.com/photo-1557804506-669a67965ba0",
+    thumbnail: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     duration: "10h 45m",
+    ects: 2,
+    semester: "Semestre 1",
+    prerequisite: "Niveau B2 en anglais requis",
     difficulty: "Débutant",
     categories: ["Communication", "Langues", "Business"],
     level: 1,
     studentsEnrolled: 35,
     rating: 4.4,
+    evaluationMethod: "Oral (60%) + Écrit (40%)",
     tags: ["communication", "anglais", "français", "business"],
     updatedAt: "2024-11-25T13:30:00Z",
     isFree: false,
-    price: { amount: 0, currency: "CAD" },
+    price: { amount: 0, currency: "EUR" },
     progress: 70,
     chapters: [
       {
@@ -514,6 +556,154 @@ export const courses = [
       },
     ],
   },
+];
+
+// Admin Data
+export const adminStats = {
+  totalStudents: 186,
+  activeCourses: 6,
+  totalInstructors: 8,
+  completionRate: 72,
+  monthlyGrowth: 15.2,
+  avgRating: 4.6,
+  totalECTS: 120,
+  graduationRate: 89
+};
+
+export const studentsData = [
+  {
+    id: "student_001",
+    name: "Alex Martin",
+    email: "alex.martin@esfi-lyon.fr",
+    studentId: "2024-FI-001",
+    program: "Master 2 Finance Internationale",
+    semester: "Semestre 1",
+    enrollmentDate: "2024-09-15",
+    status: "active",
+    avatar: "https://randomuser.me/api/portraits/men/11.jpg",
+    totalECTS: 18,
+    completedECTS: 12,
+    gpa: 15.2,
+    coursesEnrolled: ["course_001", "course_002", "course_003", "course_006"],
+    lastLogin: "2024-12-10T14:30:00Z",
+    coins: 147
+  },
+  {
+    id: "student_002",
+    name: "Amina El-Rashid",
+    email: "amina.rashid@esfi-lyon.fr",
+    studentId: "2024-FI-002",
+    program: "Master 2 Finance Internationale",
+    semester: "Semestre 1",
+    enrollmentDate: "2024-09-15",
+    status: "active",
+    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+    totalECTS: 20,
+    completedECTS: 16,
+    gpa: 16.8,
+    coursesEnrolled: ["course_001", "course_002", "course_003", "course_004", "course_005"],
+    lastLogin: "2024-12-10T16:20:00Z",
+    coins: 189
+  },
+  {
+    id: "student_003",
+    name: "Chen Wei-Ming",
+    email: "chen.weiming@esfi-lyon.fr",
+    studentId: "2024-FI-003",
+    program: "Master 2 Finance Internationale",
+    semester: "Semestre 1",
+    enrollmentDate: "2024-09-15",
+    status: "active",
+    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+    totalECTS: 16,
+    completedECTS: 14,
+    gpa: 14.9,
+    coursesEnrolled: ["course_001", "course_003", "course_004", "course_006"],
+    lastLogin: "2024-12-09T10:45:00Z",
+    coins: 156
+  },
+  {
+    id: "student_004",
+    name: "Sofia Petrova",
+    email: "sofia.petrova@esfi-lyon.fr",
+    studentId: "2024-FI-004",
+    program: "Master 2 Finance Internationale",
+    semester: "Semestre 1",
+    enrollmentDate: "2024-09-15",
+    status: "active",
+    avatar: "https://randomuser.me/api/portraits/women/68.jpg",
+    totalECTS: 18,
+    completedECTS: 10,
+    gpa: 13.7,
+    coursesEnrolled: ["course_001", "course_002", "course_005", "course_006"],
+    lastLogin: "2024-12-08T09:15:00Z",
+    coins: 132
+  }
+];
+
+export const instructorsData = [
+  {
+    id: "instructor_001",
+    name: "Dr. Sarah El Alaoui",
+    email: "sarah.elalaoui@esfi-lyon.fr",
+    title: "Professeure des Universités",
+    credentials: "Doctorat en Finance, ESCP Business School",
+    department: "Finance Internationale",
+    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b829",
+    coursesAssigned: ["course_001"],
+    studentsCount: 34,
+    rating: 4.7,
+    experience: "15 ans",
+    phone: "+33 4 72 76 85 21"
+  },
+  {
+    id: "instructor_002",
+    name: "Prof. Michel Bergeron",
+    email: "michel.bergeron@esfi-lyon.fr",
+    title: "Maître de Conférences HDR",
+    credentials: "Doctorat en Sciences de Gestion, HEC Paris",
+    department: "Management et Innovation",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
+    coursesAssigned: ["course_002"],
+    studentsCount: 28,
+    rating: 4.8,
+    experience: "12 ans",
+    phone: "+33 4 72 76 85 22"
+  }
+];
+
+export const recentActivities = [
+  {
+    id: "activity_001",
+    type: "enrollment",
+    studentName: "Pierre Dubois",
+    action: "s'est inscrit au cours FIN301",
+    timestamp: "2024-12-10T15:30:00Z",
+    courseId: "course_001"
+  },
+  {
+    id: "activity_002",
+    type: "completion",
+    studentName: "Alex Martin",
+    action: "a terminé le chapitre 'Introduction au Droit International'",
+    timestamp: "2024-12-10T14:20:00Z",
+    courseId: "course_001"
+  },
+  {
+    id: "activity_003",
+    type: "quiz",
+    studentName: "Amina El-Rashid",
+    action: "a obtenu 18/20 au quiz de Finance Internationale",
+    timestamp: "2024-12-10T11:45:00Z",
+    courseId: "course_001"
+  },
+  {
+    id: "activity_004",
+    type: "login",
+    studentName: "Chen Wei-Ming",
+    action: "s'est connecté à la plateforme",
+    timestamp: "2024-12-10T09:15:00Z"
+  }
 ];
 
 export const quizObject = {
