@@ -46,7 +46,7 @@ export const Rank = () => {
 
       <div className="flex flex-col text-center mt-2">
         <div className="flex items-center justify-center gap-1">
-          <span className="font-semibold text-lg">18/30</span>
+          <span className="font-semibold text-lg">147/180</span>
           <img
             src="/Coin.png"
             alt="Coins"
@@ -56,7 +56,7 @@ export const Rank = () => {
           />
         </div>
         <div className="text-muted-foreground text-xs sm:text-sm flex items-center  justify-center">
-          <span>12</span>
+          <span>33</span>
           <img
             src="/Coin.png"
             alt="Coins"

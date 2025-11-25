@@ -1,22 +1,22 @@
 export const courses = [
   {
     id: "course_001",
-    title: "Droit des Affaires Internationales",
-    subtitle: "Les fondements juridiques du commerce international",
+    title: "Finance Internationale Avancée",
+    subtitle: "Gestion financière dans un environnement global",
     description:
-      "Ce cours explore les règles juridiques qui gouvernent les transactions commerciales internationales, les contrats internationaux et la résolution des conflits commerciaux.",
+      "Maîtrisez les techniques de financement international, la gestion des risques de change et l'analyse des marchés financiers globaux pour optimiser les performances financières.",
     instructor: {
-      name: "Me. Sylvie Lafleur",
+      name: "Dr. Sarah El Alaoui",
       avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b829",
     },
     thumbnail: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f",
     duration: "15h 30m",
     difficulty: "Intermédiaire",
-    categories: ["Droit", "Commerce International", "Juridique"],
+    categories: ["Finance", "Commerce International", "Gestion Financière"],
     level: 2,
     studentsEnrolled: 34,
     rating: 4.7,
-    tags: ["droit", "international", "contrats", "commerce"],
+    tags: ["finance", "international", "investissement", "devises"],
     updatedAt: "2024-12-01T10:00:00Z",
     isFree: false,
     price: { amount: 0, currency: "CAD" },

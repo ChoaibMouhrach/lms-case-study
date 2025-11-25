@@ -165,6 +165,29 @@ interface CourseInfoProps {
 }
 
 const CourseInfo: React.FC<CourseInfoProps> = ({ course }) => {
+  // Calculate real progress based on completed lessons
+  const calculateProgress = () => {
+    const totalLessons = course.chapters.reduce((total, chapter) => total + chapter.lessons.length, 0);
+    const completedLessons = course.chapters.reduce(
+      (completed, chapter) =>
+        completed + chapter.lessons.filter(lesson => lesson.isCompleted).length,
+      0
+    );
+    return totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0;
+  };
+
+  // Calculate total pieces earned from completed lessons
+  const calculatePieces = () => {
+    return course.chapters.reduce(
+      (total, chapter) =>
+        total + chapter.lessons.filter(lesson => lesson.isCompleted).length * 10,
+      0
+    );
+  };
+
+  const actualProgress = calculateProgress();
+  const earnedPieces = calculatePieces();
+
   return (
     <div>
       <div className="relative rounded-md overflow-hidden">
@@ -205,18 +228,18 @@ const CourseInfo: React.FC<CourseInfoProps> = ({ course }) => {
           <div>
             <div className="grid grid-cols-2">
               <div className="flex flex-col items-center">
-                <span className="text-xl text-primary">120</span>
+                <span className="text-xl text-primary">{earnedPieces}</span>
                 <span className="text-sm text-muted-foreground">Pièces</span>
               </div>
               <div className="flex flex-col items-center">
-                <span className="text-xl text-primary">80%</span>
+                <span className="text-xl text-primary">{actualProgress}%</span>
                 <span className="text-sm text-muted-foreground">
                   Progression
                 </span>
               </div>
             </div>
 
-            <Progress value={course.progress} className="mt-4 h-2.5" />
+            <Progress value={actualProgress} className="mt-4 h-2.5" />
           </div>
         </div>
       </div>

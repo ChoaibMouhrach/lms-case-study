@@ -50,23 +50,6 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
           {course.title}
         </h3>
 
-        <div className="flex flex-wrap gap-1.5 mt-2">
-          {course.tags.slice(0, 3).map((tag) => (
-            <Badge
-              key={tag}
-              variant="secondary"
-              className="text-xs px-2 py-0.5"
-            >
-              {tag}
-            </Badge>
-          ))}
-          {course.tags.length > 3 && (
-            <Badge variant="secondary" className="text-xs px-2 py-0.5">
-              +{course.tags.length - 3}
-            </Badge>
-          )}
-        </div>
-
         <div className="my-3 sm:my-4">
           <div className="flex items-center justify-between text-xs">
             <span>Progression</span>
@@ -88,6 +71,23 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
               year: "numeric",
             })}
           </span>
+        </div>
+
+        <div className="flex flex-wrap gap-1.5 mt-4">
+          {course.tags.slice(0, 3).map((tag) => (
+            <Badge
+              key={tag}
+              variant="secondary"
+              className="text-xs px-2 py-0.5"
+            >
+              {tag}
+            </Badge>
+          ))}
+          {course.tags.length > 3 && (
+            <Badge variant="secondary" className="text-xs px-2 py-0.5">
+              +{course.tags.length - 3}
+            </Badge>
+          )}
         </div>
       </div>
     </div>

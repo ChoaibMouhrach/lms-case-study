@@ -3,23 +3,23 @@ import { BookIcon, CheckCircle2, ClockIcon } from "lucide-react";
 
 const cards = [
   {
-    title: "Cours S1",
-    value: "6",
+    title: "Modules Finance",
+    value: "8",
     icon: BookIcon,
   },
   {
-    title: "En cours",
-    value: "4",
+    title: "En progression",
+    value: "3",
     icon: ClockIcon,
   },
   {
-    title: "Validés",
-    value: "2",
+    title: "Certifiés",
+    value: "5",
     icon: CheckCircle2,
   },
   {
     title: <span>Pièces</span>,
-    value: "18",
+    value: "147",
     icon: ({ className }: { className?: string }) => (
       <img
         src="/Coin.png"
