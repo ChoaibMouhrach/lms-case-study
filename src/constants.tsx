@@ -43,8 +43,8 @@ export const courses = [
                 id: "material_001_001_001_001",
                 type: "video",
                 title: "Introduction aux sources juridiques",
-                url: "https://player.vimeo.com/video/123456789",
-                duration: "35m",
+                url: "/material-1.mp4",
+                duration: "5m",
               },
               {
                 id: "material_001_001_001_002",
@@ -540,7 +540,7 @@ export const quizObject = {
         { id: "c", text: "Les usages commerciaux locaux", isCorrect: false },
         { id: "d", text: "Les décisions administratives", isCorrect: false },
       ],
-      points: 2,
+      pieces: 2,
       explanation:
         "Les traités et conventions internationales constituent la source principale du droit international des affaires, notamment la Convention de Vienne sur la vente internationale de marchandises.",
     },
@@ -550,7 +550,7 @@ export const quizObject = {
       question:
         "La Convention de Vienne de 1980 s'applique automatiquement à tous les contrats de vente internationale.",
       correctAnswer: false,
-      points: 1,
+      pieces: 1,
       explanation:
         "La Convention de Vienne ne s'applique qu'aux contrats entre parties ayant leur établissement dans des États contractants, sauf exclusion expresse.",
     },
@@ -568,7 +568,7 @@ export const quizObject = {
         },
         { id: "d", text: "Interstate Commerce Terms", isCorrect: false },
       ],
-      points: 2,
+      pieces: 2,
       explanation:
         "Les Incoterms (International Commercial Terms) sont des règles officielles publiées par la CCI pour l'interprétation des termes commerciaux.",
     },
@@ -588,7 +588,7 @@ export const quizObject = {
         { id: "d", text: "Cour internationale de Justice", isCorrect: false },
         { id: "e", text: "Conseil de sécurité", isCorrect: false },
       ],
-      points: 3,
+      pieces: 3,
       explanation:
         "L'OMC comprend la Conférence ministérielle, le Conseil général et l'Organe de règlement des différends. La CIJ et le Conseil de sécurité appartiennent à l'ONU.",
     },
@@ -598,7 +598,7 @@ export const quizObject = {
       question:
         "Citez deux avantages de l'arbitrage commercial international par rapport aux tribunaux étatiques.",
       sampleAnswer: "Neutralité du forum et confidentialité de la procédure",
-      points: 3,
+      pieces: 3,
       explanation:
         "L'arbitrage offre notamment la neutralité, la confidentialité, l'expertise des arbitres et la reconnaissance internationale des sentences.",
     },
@@ -617,7 +617,7 @@ export const quizObject = {
         },
         { id: "d", text: "DDP (Delivered Duty Paid)", isCorrect: false },
       ],
-      points: 2,
+      pieces: 2,
       explanation:
         "L'Incoterm EXW transfère le maximum de responsabilités à l'acheteur qui doit organiser et payer le transport dès l'usine du vendeur.",
     },
@@ -627,7 +627,7 @@ export const quizObject = {
       question:
         "Les sentences arbitrales internationales sont automatiquement exécutoires dans tous les pays.",
       correctAnswer: false,
-      points: 1,
+      pieces: 1,
       explanation:
         "Les sentences ne sont exécutoires que dans les pays signataires de la Convention de New York de 1958, moyennant certaines conditions.",
     },
@@ -658,7 +658,7 @@ export const quizObject = {
           isCorrect: false,
         },
       ],
-      points: 2,
+      pieces: 2,
       explanation:
         "Le règlement d'arbitrage de la CCI est le plus utilisé mondialement, avec plus de 1000 affaires par an.",
     },
@@ -673,7 +673,7 @@ export const quizObject = {
         { id: "3", text: "Rendu de la sentence", correctOrder: 4 },
         { id: "4", text: "Échange des écritures", correctOrder: 3 },
       ],
-      points: 2,
+      pieces: 2,
       explanation:
         "La procédure commence par le dépôt de la demande, puis la constitution du tribunal, l'échange des écritures et enfin le rendu de la sentence.",
     },
@@ -683,7 +683,7 @@ export const quizObject = {
       question: "Expliquez brièvement ce qu'est la lex mercatoria.",
       sampleAnswer:
         "Un ensemble de règles et usages commerciaux internationaux développés par la pratique des commerçants",
-      points: 3,
+      pieces: 3,
       explanation:
         "La lex mercatoria désigne l'ensemble des règles et principes juridiques issus de la pratique du commerce international.",
     },

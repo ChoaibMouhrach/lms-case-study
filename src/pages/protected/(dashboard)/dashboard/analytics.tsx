@@ -1,4 +1,4 @@
-import { Coin } from "@/components/icons/ranks";
+import { cn } from "@/lib/utils";
 import { BookIcon, CheckCircle2, ClockIcon } from "lucide-react";
 
 const cards = [
@@ -18,10 +18,16 @@ const cards = [
     icon: CheckCircle2,
   },
   {
-    title: "Points ECTS",
+    title: <span>Pièces</span>,
     value: "18",
-    icon: ({ size }: { size?: number }) => (
-      <Coin size={size ? size + 10 : undefined} />
+    icon: ({ className }: { className?: string }) => (
+      <img
+        src="/Coin.png"
+        alt="Coin"
+        width={24}
+        height={24}
+        className={cn("object-contain -ml-1", className)}
+      />
     ),
   },
 ];
@@ -36,7 +42,7 @@ export const Analytics = () => {
               {card.title}
             </span>
           </div>
-          <div className="flex items-center gap-1 sm:gap-2">
+          <div className="flex items-center gap-1">
             <span className="text-lg sm:text-xl font-semibold">
               {card.value}
             </span>

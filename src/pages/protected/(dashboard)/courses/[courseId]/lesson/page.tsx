@@ -93,7 +93,7 @@ const Lesson: React.FC<LessonProps> = ({ lesson }) => {
   const [currentMaterial, setCurrentMaterial] = useState<number>(0);
 
   const progressPercentage = Math.round(
-    (currentMaterial / lesson.learningMaterials.length) * 100,
+    (currentMaterial / lesson.learningMaterials.length) * 100
   );
 
   const getMaterialIcon = (type: string) => {
@@ -116,7 +116,7 @@ const Lesson: React.FC<LessonProps> = ({ lesson }) => {
   };
 
   const getMaterialDuration = (
-    material: (typeof lesson.learningMaterials)[number],
+    material: (typeof lesson.learningMaterials)[number]
   ) => {
     if ("duration" in material && material.duration) {
       return material.duration;
@@ -174,7 +174,7 @@ const Lesson: React.FC<LessonProps> = ({ lesson }) => {
                       "true-false",
                       "multiple-choice",
                       "ordering",
-                    ].includes(question.type),
+                    ].includes(question.type)
                   )
                   .map((question) => (
                     <FormField
@@ -265,9 +265,18 @@ const Lesson: React.FC<LessonProps> = ({ lesson }) => {
       <div className="lg:col-start-3 lg:col-end-4">
         <div className="flex flex-col lg:sticky lg:top-4 gap-2">
           <div className="border rounded-md bg-background p-4 flex items-center">
-            <span>Crédits ECTS</span>
-            <span className="ml-auto text-primary flex items-center">
-              +2 ECTS
+            <div className="flex items-center gap-1">
+              <span>Pièces gagnées</span>
+            </div>
+            <span className="ml-auto text-primary flex items-center gap-1">
+              <span>+2</span>
+              <img
+                src="/Coin.png"
+                alt="Coins"
+                width={14}
+                height={14}
+                className="object-contain"
+              />
             </span>
           </div>
 
@@ -291,7 +300,7 @@ const Lesson: React.FC<LessonProps> = ({ lesson }) => {
                 index > currentMaterial
                   ? "text-muted-foreground cursor-not-allowed"
                   : "hover:bg-muted cursor-pointer",
-                index === currentMaterial && "ring-2 ring-primary",
+                index === currentMaterial && "ring-2 ring-primary"
               )}
             >
               <div className="flex items-start gap-2">
@@ -328,7 +337,7 @@ const Lesson: React.FC<LessonProps> = ({ lesson }) => {
                 ? "text-muted-foreground cursor-not-allowed"
                 : "hover:bg-muted cursor-pointer",
               lesson.learningMaterials.length === currentMaterial &&
-                "ring-2 ring-primary",
+                "ring-2 ring-primary"
             )}
           >
             <div className="flex items-center gap-2">

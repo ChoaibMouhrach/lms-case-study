@@ -1,9 +1,4 @@
-import {
-  Coin,
-  FirstPlace,
-  SecondPlace,
-  ThirdPlace,
-} from "@/components/icons/ranks";
+import { FirstPlace, SecondPlace, ThirdPlace } from "@/components/icons/ranks";
 import { cn } from "@/lib/utils";
 
 const users = [
@@ -13,7 +8,7 @@ const users = [
     username: "lea_mc",
     avatar: "https://randomuser.me/api/portraits/women/44.jpg",
     rank: 1,
-    points: 22,
+    pieces:22,
   },
   {
     id: 2,
@@ -21,7 +16,7 @@ const users = [
     username: "antoine_b",
     avatar: "https://randomuser.me/api/portraits/men/32.jpg",
     rank: 2,
-    points: 21,
+    pieces:21,
   },
   {
     id: 3,
@@ -29,7 +24,7 @@ const users = [
     username: "nadia_ah",
     avatar: "https://randomuser.me/api/portraits/women/68.jpg",
     rank: 3,
-    points: 20,
+    pieces:20,
   },
   {
     id: 6,
@@ -37,7 +32,7 @@ const users = [
     username: "alexm",
     avatar: "https://randomuser.me/api/portraits/men/11.jpg",
     rank: 8,
-    points: 18,
+    pieces:18,
   },
 ];
 
@@ -51,7 +46,7 @@ export const LeaderBoard = () => {
             key={user.id}
             className={cn(
               "flex items-center gap-3 p-2 rounded-md border bg-background/50",
-              index === 0 ? "border-primary bg-primary/5" : "",
+              index === 0 ? "border-primary bg-primary/5" : ""
             )}
           >
             <div className="flex items-center justify-center w-8 h-8 shrink-0">
@@ -103,12 +98,24 @@ export const LeaderBoard = () => {
 
             <div className="flex items-center gap-1 text-primary font-medium text-sm">
               <div className="sm:hidden">
-                <Coin size={18} />
+                <img
+                  src="/coin.png"
+                  alt="Coin"
+                  width={18}
+                  height={18}
+                  className="object-contain"
+                />
               </div>
               <div className="hidden sm:block">
-                <Coin size={20} />
+                <img
+                  src="/coin.png"
+                  alt="Coin"
+                  width={20}
+                  height={20}
+                  className="object-contain"
+                />
               </div>
-              <span>{user.points}</span>
+              <span>{user.pieces}</span>
             </div>
           </div>
         ))}

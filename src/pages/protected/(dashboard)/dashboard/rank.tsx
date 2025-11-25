@@ -1,4 +1,3 @@
-import { FakeRank } from "@/components/icons/ranks";
 import { ChartContainer, type ChartConfig } from "@/components/ui/chart";
 import {
   Label,
@@ -11,15 +10,36 @@ import {
 export const Rank = () => {
   return (
     <div className="bg-background rounded-md border p-3 sm:p-4">
-      <h3 className="font-semibold text-sm mb-2">Progression ECTS</h3>
+      <h3 className="font-semibold text-sm mb-2 flex items-center gap-1">
+        <img
+          src="/Coin.png"
+          alt="Coin"
+          width={28}
+          height={28}
+          className="object-contain"
+        />
+        Progression
+      </h3>
       <div className="relative">
         <ChartRadialText />
         <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center pb-3">
           <div className="sm:hidden">
-            <FakeRank size={120} />
+            <img
+              src="/rank.png"
+              alt="Rank"
+              width={120}
+              height={120}
+              className="object-contain"
+            />
           </div>
           <div className="hidden sm:block">
-            <FakeRank size={140} />
+            <img
+              src="/rank.png"
+              alt="Rank"
+              width={140}
+              height={140}
+              className="object-contain"
+            />
           </div>
         </div>
       </div>
@@ -27,11 +47,25 @@ export const Rank = () => {
       <div className="flex flex-col text-center mt-2">
         <div className="flex items-center justify-center gap-1">
           <span className="font-semibold text-lg">18/30</span>
-          <span className="text-sm text-muted-foreground">ECTS</span>
+          <img
+            src="/Coin.png"
+            alt="Coins"
+            width={24}
+            height={24}
+            className="object-contain -ml-1"
+          />
         </div>
-        <span className="text-muted-foreground text-xs sm:text-sm">
-          12 crédits restants ce semestre
-        </span>
+        <div className="text-muted-foreground text-xs sm:text-sm flex items-center  justify-center">
+          <span>12</span>
+          <img
+            src="/Coin.png"
+            alt="Coins"
+            width={20}
+            height={20}
+            className="object-contain "
+          />
+          <span>restantes ce semestre</span>
+        </div>
       </div>
     </div>
   );
