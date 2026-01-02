@@ -1,10 +1,4 @@
-import {
-  Dashboard,
-  DashboardContent,
-  DashboardDescription,
-  DashboardHeader,
-  DashboardTitle,
-} from "@/components/dashboard-page";
+import { Dashboard, DashboardContent } from "@/components/dashboard-page";
 import { Button } from "@/components/ui/button";
 import {
   Breadcrumb,
