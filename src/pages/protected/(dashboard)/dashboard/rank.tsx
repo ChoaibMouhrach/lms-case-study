@@ -12,7 +12,7 @@ export const Rank = () => {
     <div className="bg-background rounded-md border p-3 sm:p-4">
       <h3 className="font-semibold text-sm mb-2 flex items-center gap-1">
         <img
-          src="/Coin.png"
+          src="/coin.png"
           alt="Coin"
           width={28}
           height={28}
@@ -48,7 +48,7 @@ export const Rank = () => {
         <div className="flex items-center justify-center gap-1">
           <span className="font-semibold text-lg">147/180</span>
           <img
-            src="/Coin.png"
+            src="/coin.png"
             alt="Coins"
             width={24}
             height={24}
@@ -58,7 +58,7 @@ export const Rank = () => {
         <div className="text-muted-foreground text-xs sm:text-sm flex items-center  justify-center">
           <span>33</span>
           <img
-            src="/Coin.png"
+            src="/coin.png"
             alt="Coins"
             width={20}
             height={20}

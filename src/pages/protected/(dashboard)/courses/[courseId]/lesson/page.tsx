@@ -312,7 +312,7 @@ const Lesson: React.FC<LessonProps> = ({ lesson }) => {
             <span className="ml-auto text-primary flex items-center gap-1">
               <span>+2</span>
               <img
-                src="/Coin.png"
+                src="/coin.png"
                 alt="Coins"
                 width={14}
                 height={14}

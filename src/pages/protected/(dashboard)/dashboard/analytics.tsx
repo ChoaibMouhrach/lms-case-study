@@ -22,7 +22,7 @@ const cards = [
     value: "147",
     icon: ({ className }: { className?: string }) => (
       <img
-        src="/Coin.png"
+        src="/coin.png"
         alt="Coin"
         width={24}
         height={24}
